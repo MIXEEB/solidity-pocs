@@ -1,2 +1,3 @@
-# solidity-pocs
-Collection of different solidity proof of concept projects
+# Collection of Solidity Proof of Concept projects
+
+1. NTF minting
