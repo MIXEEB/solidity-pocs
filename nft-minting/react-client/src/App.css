@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'True Crimes';
+  src: url('./assets/true-crimes.ttf');
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.ButtonContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.ComicButton {
+  border: none;
+  width: 300px;
+  height: 120px;
+  background-image: url('./assets/button.png');
+  background-color: Transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 30px;
+  font-family: 'True Crimes';
+  color: #FFFFFF;
+}

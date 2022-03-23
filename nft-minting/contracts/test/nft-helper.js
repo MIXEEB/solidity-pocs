@@ -29,7 +29,9 @@ class NftHelper {
   async getSignedVoucher(signer, contract, voucher) {
     const chainId = await contract.getChainId();
     const domain = this.getSigningDomain(chainId, contract.address);
-  
+
+    console.log('chain id....', chainId);
+
     const types = {
       DWFVoucher: [
         {name:"tokenId", type:"uint256"},
@@ -37,7 +39,9 @@ class NftHelper {
         {name:"metadata", type:"bytes32"}
       ]
     }
-  
+    
+    //console.log('------------------ THIS IS SIGNER', signer);
+
     const signature = await signer._signTypedData(domain, types, voucher);
     return {
       ...voucher,
