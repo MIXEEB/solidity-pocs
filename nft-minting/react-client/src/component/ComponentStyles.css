@@ -1,0 +1,26 @@
+.FlexColumnCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ComicSpan {
+  font-family: 'True Crimes';
+  color: white;
+  font-size: 20px;
+}
+
+.ComicInput {
+  background: rgba(0, 0, 0, .1);
+  border: none;
+  font-family: 'True Crimes';
+  color: white;
+  font-size: 36px;
+  width: 200px;
+  padding: 5px;
+  text-align: center;
+}
+
+.ComicInput input:focus {
+  outline-width: 0;
+}
