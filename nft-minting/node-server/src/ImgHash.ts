@@ -8,4 +8,8 @@ export default class ImgHash {
     const stringifiedBuffer = file.toString('utf8');
     return web3.utils.keccak256(stringifiedBuffer);
   }
+
+  getHashOfRaw = async(rawFile: string) => {
+    return web3.utils.keccak256(rawFile);
+  }
 }

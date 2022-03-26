@@ -5,6 +5,7 @@ import { ethers } from 'ethers';
 import './App.css';
 import artifact from './artifacts/LazyDWF.json';
 import TokenParameters from './component/TokenParameters';
+import NtfImage from './component/NftImage';
 
 const ROPSTEN_PRIVATE_KEY = "[ENTER_PK___ONLY_FOR_LOCAL_TESTING]";
 const ROPSTEN_NETWORK = "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
@@ -89,6 +90,7 @@ function App() {
         <button className="ComicButton" onClick={mintInline}>Mint</button> 
       </div>
       <span className="SignatureSpan">{signature}</span>
+      <NtfImage></NtfImage>
     </div>
   );
 }
