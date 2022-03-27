@@ -4,6 +4,26 @@ import axios from 'axios';
 
 export default function NtfImage(props) {
   const [deg, setDeg] = useState(0);
+  const [initialized, setInitialized] = useState(false);
+  const image = new Image();
+
+  const init = () => {
+    image.src = dwarfMiner;
+    image.onload = () => {
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(image, 0, 0);
+    }
+  }
+
+  useEffect(function(){
+    if (!initialized) {
+      init();
+      setInitialized(true);
+      return;
+    }
+    refreshCanvas(deg);
+  })
 
   const refreshCanvas = (_deg) => {
     const canvas = document.getElementById("canvas");
@@ -24,8 +44,8 @@ export default function NtfImage(props) {
     })
   }
   const updateDegree = (value) => {
+    setInitialized(true);
     setDeg(value);
-    refreshCanvas(value);
   }
 
   const [storedImages, setStoredImages] = useState([])
@@ -35,9 +55,10 @@ export default function NtfImage(props) {
   }
 
   return (<div className='ImageGeneratorContainer'>
-    <input type="range" min="0" max="360" value={deg} id="myRange" onChange={(e) => updateDegree(e.target.value)}/>
-    <img id="hiddenSource" className='HiddenImage' src={dwarfMiner}></img>
-    <canvas width={412} height={468} id="canvas"></canvas>
+    <input type="range" min="0" max="359" value={deg} id="myRange" onChange={(e) => updateDegree(e.target.value)}/>
     <button className="ComicButton" onClick={() => sendImageData()}>Send</button>
+    <img id="hiddenSource" className='HiddenImage' src={dwarfMiner}></img>    
+    <canvas width={412} height={468} id="canvas"></canvas>
   </div>)
 }
+
