@@ -37,7 +37,7 @@ export default function NtfImage(props) {
 
   const sendImageData = () => {
     const canvas = document.getElementById("canvas");
-    axios.post("http://localhost:3001/bytes", {
+    axios.post("http://localhost:3001/sign", {
       image: canvas.toDataURL('image/png')
     }).then((res) => {
       console.log(res);

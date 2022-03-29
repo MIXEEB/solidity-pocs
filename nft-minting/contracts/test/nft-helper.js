@@ -40,8 +40,6 @@ class NftHelper {
       ]
     }
     
-    //console.log('------------------ THIS IS SIGNER', signer);
-
     const signature = await signer._signTypedData(domain, types, voucher);
     return {
       ...voucher,
